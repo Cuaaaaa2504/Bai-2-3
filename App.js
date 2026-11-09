@@ -13,7 +13,7 @@ function Tile({ number, color, style, dark = false }) {
 function Layout() {
   const { width, height } = useWindowDimensions();
   const canvasWidth = Math.min(Math.max(width - 28, 0), 432);
-  const scale = Math.min(canvasWidth / 432, Math.max(height - 100, 1) / 504);
+  const scale = Math.min(canvasWidth / 432, Math.max(height - 160, 1) / 504);
   const gap = 7 * scale;
   return (
     <SafeAreaView style={styles.screen}>
@@ -27,6 +27,7 @@ function Layout() {
           <Tile number={5} color="#7D3CE1" style={{ width: 105 * scale }} />
         </View>
         <Tile number={6} color="#FF7610" style={{ height: 143 * scale }} />
+        <Text style={styles.studentInfo}>Nguyễn Hà Trung Nam - BIT240168</Text>
       </View>
     </SafeAreaView>
   );
@@ -43,4 +44,5 @@ const styles = StyleSheet.create({
   tile: { alignItems: 'center', justifyContent: 'center' },
   number: { color: '#FFFFFF', fontSize: 36, fontWeight: '700' },
   dark: { color: '#000000' },
+  studentInfo: { width: '100%', marginTop: 8, color: '#000000', fontSize: 16, fontWeight: '600', textAlign: 'center' },
 });
